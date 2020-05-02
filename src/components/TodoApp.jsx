@@ -5,7 +5,7 @@ import  WelcomeComponent  from './WelcomeComponent';
 import ListTodosComponent from './ListTodosComponent';
 import HeaderComponent from './HeaderComponent';
 import FooterComponent from './FooterComponent';
-import './style.css';
+import './style/style.css';
 
 class TodoApp extends Component {
   render() {
