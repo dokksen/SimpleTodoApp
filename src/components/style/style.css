@@ -1,3 +1,116 @@
-*{
-    background-color: whitesmoke;
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+@import url('https://fonts.googleapis.com/css?family=Varela Round');
+
+* {
+  margin: 0;
+  padding: 0;
 }
+
+html, body{
+  width: 100%;
+  height: 100%;
+}
+
+
+.content > *{
+  margin: 0 auto;
+
+
+}
+
+.header {
+  background-color: rgb(47, 51, 58);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  color: whitesmoke;
+}
+
+.header > div {
+  display: flex;
+  justify-content: space-around;
+  width: 200px;
+}
+
+.header > div > h3 {
+  margin-top: 10px;
+  padding-bottom: 10px;
+}
+
+.header > div .navigationLink {
+    text-decoration: none;
+    color: whitesmoke;
+    font-family: "Roboto";
+    font-size: calc(14px + 0.4vw);
+}
+
+.footer{
+    position: absolute;
+    bottom: 0;
+    background-color: rgb(47, 51, 58);
+    color: whitesmoke;
+    width: 100%;
+}
+.footer h1{
+    padding: 10px;
+    color: whitesmoke;
+    font-family: "Roboto";
+    font-size: calc(12px + 0.3vw);
+}
+
+.login{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  width: 50%;
+  height: 50vh;
+}
+
+.login h3{
+  color:rgb(47, 51, 58);
+}
+
+
+.login input{
+  border: none;
+  border-bottom: solid rgb(47, 51, 58);
+}
+
+.login input:focus{
+  border-bottom: solid rgb(47, 51, 58);
+  outline-width: 0;
+}
+
+
+.login .loginForm{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  height: 30vh;
+}
+
+.loginForm > div{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 0 auto;
+  width: 25vw;
+}
+
+.loginForm > div > button{
+  width: 5vw;
+  height: 5vh;
+  font-weight: bold;
+  background-color: whitesmoke;
+  border: solid rgb(47, 51, 58);
+}
+
+.loginForm > div > button:hover{
+  background-color:rgb(47, 51, 58);
+  color: whitesmoke;
+}
+
+
+
+
+  

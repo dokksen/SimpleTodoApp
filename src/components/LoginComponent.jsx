@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import AuthenticationService from './AuthenticationService';
 
 
 class LoginComponent extends Component {
@@ -21,6 +22,8 @@ class LoginComponent extends Component {
     };
     loginClicked = () => {
         if (this.state.username === 'dokksen' && this.state.password === 'hellodokksen') {
+            
+            AuthenticationService.registerSuccessfulLogin(this.state.username, this.state.password);
             this.props.history.push(`/welcome/${this.state.username}`);
             this.setState({ hasLoginFailed: false });
         }
@@ -28,23 +31,49 @@ class LoginComponent extends Component {
             this.setState({ hasLoginFailed: true });
         }
     };
+
+    resetInput = () => {  
+        
+        console.log("Sucuk");
+        this.setState({username: '', password: ''});
+       
+    };
+
     render() {
-        return (<div>
-            <ShowLoginInfo hasLoginFailed={this.state.hasLoginFailed} />
-        User Name: <input type="text" name="username" value={this.state.username} onChange={this.handleChange} />
-        Passwort:  <input type="password" name="password" value={this.state.password} onChange={this.handleChange} />
-            <button onClick={this.loginClicked}>Login</button>
-        </div>);
+        return (
+        <div className="content">
+            <div className="login">
+            <h1>Login:</h1>
+            <div className="loginForm">
+                <div>
+                    <h3>User Name:</h3>
+                    <input type="text" name="username" value={this.state.username} onChange={this.handleChange} />
+                </div>
+                <div>
+                    <h3>Password:</h3>
+                    <input type="password" name="password" value={this.state.password} onChange={this.handleChange} />
+                </div>
+                <div>
+                    <button onClick={this.resetInput}>Reset</button>
+                    <button onClick={this.loginClicked}>Login</button>
+                </div>
+            </div>
+            <div>
+                <ShowLoginInfo hasLoginFailed={this.state.hasLoginFailed} />
+            </div>
+            </div>
+        </div>
+        );
     }
 }
 
 
 function ShowLoginInfo(props) {
     if (props.hasLoginFailed === true) {
-        return <div> Invalid Credentials </div>;
+        return <h3>Invalid Credentials! Please try again! </h3>;
     }
     else if (props.hasLoginFailed === false) {
-        return <div> Login Succesfull </div>;
+        return <h1> Login Succesfull </h1>;
     }
     return null;
 }

@@ -5,6 +5,8 @@ import  WelcomeComponent  from './WelcomeComponent';
 import ListTodosComponent from './ListTodosComponent';
 import HeaderComponent from './HeaderComponent';
 import FooterComponent from './FooterComponent';
+import LogoutComponent from './LogoutComponent';
+import AuthenticatedRoute from './AuthenticatedRoute';
 import './style/style.css';
 
 class TodoApp extends Component {
@@ -17,8 +19,9 @@ class TodoApp extends Component {
                     <Switch>
                         <Route path="/" exact component={LoginComponent}/>
                         <Route path="/login" component={LoginComponent}/>
-                        <Route path="/welcome/:name" component={WelcomeComponent}/>
-                        <Route path="/todos" component={ListTodosComponent}/>
+                        <Route path="/logout" component={LogoutComponent}/>
+                        <AuthenticatedRoute path="/welcome/:name" component={WelcomeComponent}/>
+                        <AuthenticatedRoute path="/todos" component={ListTodosComponent}/>
                         <Route path="" component={ErrorComponent}/>
                     </Switch>
                     <FooterComponent/>   
@@ -32,6 +35,5 @@ class TodoApp extends Component {
 function ErrorComponent(){
     return <div>An Error has occured please contact Max Mustermann!</div>
 }
-
 
 export default TodoApp;
